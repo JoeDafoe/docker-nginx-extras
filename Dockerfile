@@ -178,7 +178,7 @@ RUN set -eux; \
         --add-module="/tmp/ngx-fancyindex-${FANCYINDEX}" \
         --add-module="/tmp/ngx_http_substitutions_filter_module"; \
     \
-    # --------------------------------------------------------
+        # --------------------------------------------------------
     # Download OpenTelemetry module
     # --------------------------------------------------------
     cd /tmp; \
@@ -194,7 +194,9 @@ RUN set -eux; \
         -S /tmp/nginx-otel \
         -B /tmp/nginx-otel/build \
         -DNGX_OTEL_NGINX_BUILD_DIR="/usr/src/nginx-${NGINX_VERSION}/objs" \
-        -DCMAKE_BUILD_TYPE=Release; \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_C_FLAGS="-D_LARGEFILE64_SOURCE" \
+        -DCMAKE_CXX_FLAGS="-D_LARGEFILE64_SOURCE"; \
     \
     cmake \
         --build /tmp/nginx-otel/build \
