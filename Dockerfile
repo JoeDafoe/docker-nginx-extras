@@ -4,7 +4,7 @@ FROM alpine:3.24
 # Build arguments
 # ------------------------------------------------------------
 
-ARG NGINX_VERSION=1.30.6
+ARG NGINX_VERSION=1.30.7
 ARG MORE_SET_HEADER_VERSION=0.41
 ARG FANCYINDEX=0.6.0
 ARG SUBS_FILTER_COMMIT=e12e965ac1837ca709709f9a26f572a54d83430e
